@@ -8,4 +8,4 @@ A music player mostly for myself. Equipped with playlist management (under devel
 
 —— From [Touhou Project](https://en.wikipedia.org/wiki/Touhou_Project)
 
-![Lyrica Prismriver](assets/Lyrica.png "Lyrica Prismriver")
+![Lyrica Prismriver](lyrica.png "Lyrica Prismriver")
