@@ -1,0 +1,296 @@
+html, body, .wrapper {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.github-link {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    font-size: 30px;
+}
+
+.github-link a {
+    position: relative;
+    color: #c27a78;
+    text-decoration: none;
+}
+
+.github-link:hover a {
+    color: white;
+}
+
+.github-link:active a {
+    top: 1px;
+}
+
+.wrapper {
+    display: flex;
+    background-color: #7b3230;
+}
+
+#lyrica {
+    margin: auto;
+    font-family: Verdana, Arial, sans-serif;
+    color: #c27c78;
+}
+
+#lyrica .lyrica-wrapper {
+    position: relative;
+    background-color: #3f0806;
+    border-radius: 10px;
+    opacity: 0.8;
+}
+
+#lyrica .lyrica-console {
+    display: flex;
+    width: 300px;
+    height: 400px;
+    flex-direction: column;
+}
+
+#lyrica .lyrica-console .lyrica-volume {
+    flex: 0 0 30px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+}
+
+#lyrica .lyrica-console .lyrica-volume .jp-mute {
+    width: 20px;
+    cursor: pointer;
+}
+
+#lyrica .lyrica-console .lyrica-volume .jp-volume-bar {
+    width: 0;
+    height: 3px;
+    margin-left: 12px;
+    background-color: #601b19;
+    cursor: pointer;
+    -webkit-transition: width 0.2s;
+    transition: width 0.2s;
+}
+
+#lyrica .lyrica-console .lyrica-volume:hover .jp-volume-bar {
+    width: 75px;
+}
+
+#lyrica .lyrica-console .lyrica-volume .jp-volume-bar .jp-volume-bar-value {
+    height: 100%;
+    background-color: #9c5150;
+}
+
+#lyrica .lyrica-console .lyrica-carousel {
+    flex: 0 0 200px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+#lyrica .lyrica-console .lyrica-progress {
+    flex: 0.1 0 auto;
+    padding: 18px 12px 0 12px;
+    font-size: 0.5em;
+}
+
+#lyrica .lyrica-console .lyrica-progress .jp-seek-bar {
+    width: 90%;
+    height: 3px;
+    background-color: #601b19;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+#lyrica .lyrica-console .lyrica-progress .jp-seek-bar .jp-play-bar {
+    height: 100%;
+    background-color: #9c5150;
+}
+
+#lyrica .lyrica-console .lyrica-progress .jp-current-time {
+    float: left;
+}
+
+#lyrica .lyrica-console .lyrica-progress .jp-duration {
+    float: right;
+}
+
+#lyrica .lyrica-console .lyrica-display {
+    flex: 2 0 auto;
+    display: flex;
+    color: white;
+    padding-bottom: 12px;
+}
+
+#lyrica .lyrica-console .lyrica-display .lyrica-display-inner {
+    margin: auto;
+    text-align: center;
+}
+
+#lyrica .lyrica-console .lyrica-display .lyrica-display-inner .lyrica-artist {
+    font-size: 0.75em;
+    margin-top: 5px;
+    color: #c27c78;
+}
+
+#lyrica .lyrica-console .lyrica-control-bar {
+    flex: 0 0 50px;
+    background-color: #601b19;
+    display: flex;
+    position: relative;
+}
+
+#lyrica .lyrica-console .lyrica-control-bar .control-button {
+    flex: 0 0 20%;
+    text-align: center;
+    font-size: 1.4em;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#lyrica .lyrica-console .lyrica-control-bar .control-button:hover {
+    color: white;
+}
+
+#lyrica .lyrica-console .lyrica-control-bar .control-button:active svg {
+    position: relative;
+    top: 1px;
+}
+
+#lyrica .lyrica-console .lyrica-control-bar .control-button svg {
+    height: 100%;
+}
+
+#lyrica .lyrica-console .lyrica-control-bar .lyrica-control-bar-extra {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    top: -35px;
+    padding: 0 12px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#lyrica .lyrica-console .lyrica-control-bar .lyrica-control-bar-extra div {
+    color: #601b19;
+    cursor: pointer;
+    position: relative;
+}
+
+#lyrica .lyrica-console .lyrica-control-bar .lyrica-control-bar-extra div:hover {
+    color: #c27c78;
+}
+
+#lyrica .lyrica-console .lyrica-control-bar .lyrica-control-bar-extra div:active {
+    top: 1px;
+}
+
+#lyrica .jp-state-looped .lyrica-console .lyrica-control-bar .lyrica-control-bar-extra .jp-repeat {
+    color: #c27c78;
+}
+
+#lyrica .lyrica-state-shuffled .lyrica-console .lyrica-control-bar .lyrica-control-bar-extra .lyrica-shuffle {
+    color: #c27c78;
+}
+
+#lyrica .lyrica-console .lyrica-footer {
+    flex: 0 0 10px;
+}
+
+#lyrica .lyrica-panel-playlist, #lyrica .lyrica-panel-lyrics {
+    position: absolute;
+    width: 250px;
+    height: 370px;
+    top: 20px;
+    box-sizing: border-box;
+    background-color: #601b19;
+    padding: 20px;
+    font-size: 0.75em;
+    display: none;
+}
+
+#lyrica .lyrica-panel-playlist {
+    right: -250px;
+    border-radius: 0 10px 10px 0;
+}
+
+#lyrica .lyrica-panel-playlist .jp-artist {
+    display: none;
+}
+
+#lyrica .lyrica-panel-playlist ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#lyrica .lyrica-panel-playlist li {
+    position: relative;
+    padding: 4px 0;
+    border-top: 1px solid #9c5150;
+    border-bottom: 1px solid #3f0806;
+}
+
+#lyrica .lyrica-panel-playlist li:first-child {
+    border-top: none;
+}
+
+#lyrica .lyrica-panel-playlist li:last-child {
+    border-bottom: none;
+}
+
+#lyrica .lyrica-panel-playlist li svg {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    display: none;
+}
+
+#lyrica .lyrica-panel-playlist li.jp-playlist-current svg {
+    display: block;
+}
+
+#lyrica .lyrica-panel-playlist a {
+    color: #c27c78;
+    text-decoration: none;
+}
+
+#lyrica .lyrica-panel-playlist a:hover {
+    color: white;
+}
+
+#lyrica .lyrica-playlist-showing .lyrica-playlist {
+    color: white;
+}
+
+#lyrica .lyrica-playlist-showing .lyrica-panel-playlist{
+    display: block;
+}
+
+#lyrica .lyrica-lyrics-showing .lyrica-lyrics {
+    color: white;
+}
+
+#lyrica .lyrica-lyrics-showing .lyrica-panel-lyrics {
+    display: block;
+}
+
+#lyrica .lyrica-panel-lyrics {
+    left: -250px;
+    border-radius: 10px 0 0 10px;
+    text-align: center;
+    overflow: hidden;
+}
+
+#lyrica .lyrica-panel-lyrics .jp-lyrics {
+    position: relative;
+}
+
+#lyrica .lyrica-panel-lyrics .active {
+    color: white;
+}

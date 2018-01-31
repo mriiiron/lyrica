@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lyrica</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./css/lyrica.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+</head>
+
+<body>
+
+<div class="github-link"><a href="https://github.com/mriiiron/lyrica" target="_blank"><i class="fab fa-github"></i></a></div>
+
+<div class="wrapper">
+    <div id="lyrica">
+        <div id="jplayer-lyrica" class="jp-jplayer"></div>
+        <div id="jplayer-lyrica-container" class="jp-audio lyrica-wrapper" role="application" aria-label="media player">
+            <div class="lyrica-console">
+                <div class="lyrica-volume">
+                    <div class="jp-mute"><i class="fas fa-volume-up"></i></div>
+                    <div class="jp-volume-bar">
+                        <div class="jp-volume-bar-value"></div>
+                    </div>
+                </div>
+                <div class="lyrica-carousel"></div>
+                <div class="lyrica-progress">
+                    <div class="jp-seek-bar">
+                        <div class="jp-play-bar"></div>
+                    </div>
+                    <div class="jp-current-time"></div>
+                    <div class="jp-duration"></div>
+                </div>
+                <div class="lyrica-display">
+                    <div class="lyrica-display-inner">
+                        <div class="jp-title"></div>
+                        <div class="lyrica-artist"></div>
+                    </div>
+                </div>
+                <div class="lyrica-control-bar">
+                    <div class="control-button lyrica-lyrics"><i class="fas fa-closed-captioning"></i></div>
+                    <div class="control-button lyrica-previous"><i class="fas fa-step-backward"></i></div>
+                    <div class="control-button jp-play"><i class="fas fa-play"></i></div>
+                    <div class="control-button lyrica-next"><i class="fas fa-step-forward"></i></div>
+                    <div class="control-button lyrica-playlist"><i class="fas fa-list"></i></div>
+                    <div class="lyrica-control-bar-extra">
+                        <div class="jp-repeat"><i class="fas fa-undo"></i></div>
+                        <div class="lyrica-shuffle"><i class="fas fa-random"></i></div>
+                    </div>
+                </div>
+                <div class="lyrica-footer"></div>
+            </div>
+            <div class="lyrica-panel-playlist">
+                <div class="jp-playlist"><ul><li></li></ul></div>
+            </div>
+            <div class="lyrica-panel-lyrics">
+                <div class="jp-lyrics"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="./js/jquery.jplayer.min.js"></script>
+<script src="./js/jplayer.playlist.min.js"></script>
+<script src="./js/lrc.js"></script>
+<script>
+
+    var lyrics = null, player = null;
+
+    $(document).ready(function () {
+
+        let lyrica_Selector = '#jplayer-lyrica';
+        let lyricaUI_Selector = '#jplayer-lyrica-container';
+        let lyrics_Selector = lyricaUI_Selector + ' .jp-lyrics';
+
+        let $lyrica = $(lyrica_Selector);
+        let $lyricaUI = $(lyricaUI_Selector);
+
+        lyrics = new Lyrics({ container: lyrics_Selector });
+
+        player = new jPlayerPlaylist(
+            {
+                jPlayer: lyrica_Selector,
+                cssSelectorAncestor: lyricaUI_Selector,
+            },
+            [
+                {
+                    title:"Flower Dance",
+                    artist:"DJ Okawari",
+                    mp3: 'http://p3fsh3hac.bkt.clouddn.com/lyrica/music/FlowerDance.mp3',
+                    poster: 'http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/ACupOfCoffee.jpg'
+                },
+                {
+                    title:"Another Day",
+                    artist:"DJ Siesta",
+                    mp3: 'http://p3fsh3hac.bkt.clouddn.com/lyrica/music/AnotherDay.mp3',
+                    poster: 'http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/AnotherDay.jpg'
+                },
+                {
+                    title:"Town of Windmill",
+                    artist:"a_hisa",
+                    mp3: 'http://p3fsh3hac.bkt.clouddn.com/lyrica/music/TownOfWindmill.mp3',
+                    poster: 'http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/TownOfWindmill.jpg'
+                },
+                {
+                    title:"She",
+                    artist:"Groove Coverage",
+                    mp3: 'http://p3fsh3hac.bkt.clouddn.com/lyrica/music/She.mp3',
+                    lyrics: 'http://p3fsh3hac.bkt.clouddn.com/lyrica/lyrics/She.txt'
+                }
+            ],
+            {
+                playlistOptions: {
+                    loopOnPrevious: true,
+                    displayTime: 0,
+                    addTime: 0,
+                    removeTime: 0,
+                    shuffleTime: 0
+                },
+                swfPath: '/js',
+                supplied: 'mp3',
+                useStateClassSkin: true
+            }
+        );
+
+        $lyrica.bind($.jPlayer.event.ready, function (e) {
+            $lyricaUI.find('.jp-playlist li').append('<i class="fas fa-headphones"></i>');
+        });
+
+        $lyrica.bind($.jPlayer.event.play, function (e) {
+            $lyricaUI.find('.jp-play svg').removeClass('fa-play').addClass('fa-pause');
+        });
+
+        $lyrica.bind($.jPlayer.event.pause, function (e) {
+            $lyricaUI.find('.jp-play svg').removeClass('fa-pause').addClass('fa-play');
+        });
+
+        $lyrica.bind($.jPlayer.event.volumechange, function (e) {
+            let $svg = $lyricaUI.find('.jp-mute svg');
+            if ($lyricaUI.hasClass('jp-state-muted')) {
+                $svg.removeClass('fa-volumn-down').removeClass('fa-volume-up').addClass('fa-volume-off');
+            }
+            else {
+                if (e.jPlayer.options.volume > 0.667) {
+                    $svg.removeClass('fa-volumn-off').removeClass('fa-volume-down').addClass('fa-volume-up');
+                }
+                else if (e.jPlayer.options.volume > 0) {
+                    $svg.removeClass('fa-volumn-off').removeClass('fa-volume-up').addClass('fa-volume-down');
+                }
+                else {
+                    $svg.removeClass('fa-volumn-down').removeClass('fa-volume-up').addClass('fa-volume-off');
+                }
+            }
+        });
+
+        $lyrica.bind($.jPlayer.event.setmedia, function (e) {
+            let media = e.jPlayer.status.media;
+            $lyricaUI.find('.lyrica-carousel').css('background-image', 'url("' + (media.poster ? media.poster : './assets/default-cover.png') + '")');
+            $lyricaUI.find('.lyrica-artist').text(media.artist);
+            if (media.lyrics) {
+                $.get(media.lyrics, null, function (data) {
+                    lyrics.load(data);
+                }, 'text');
+            }
+            else {
+                $(lyrics_Selector).text('no lyrics.');
+                lyrics.data = null;
+            }
+        });
+
+        $lyrica.bind($.jPlayer.event.timeupdate, function (e) {
+            if (lyrics.data) {
+                for (let i = lyrics.data.length - 1; i >= 0; i--) {
+                    if (e.jPlayer.status.currentTime >= lyrics.data[i][0]) {
+                        if (i != lyrics.currentLine) {
+                            let $container = $(lyrics.container);
+                            let $currentLine = $container.find('p').eq(i);
+                            lyrics.currentLine = i;
+                            $container.find('.active').removeClass('active');
+                            $currentLine.addClass('active');
+                            $container.css('top', (lyrics.offsetTop - $currentLine[0].offsetTop) + 'px');
+                        }
+                        break;
+                    }
+                }
+            }
+        });
+
+        $lyricaUI.find('.lyrica-playlist').click(function () {
+            $lyricaUI.toggleClass('lyrica-playlist-showing');
+        });
+
+        $lyricaUI.find('.lyrica-lyrics').click(function () {
+            $lyricaUI.toggleClass('lyrica-lyrics-showing');
+        });
+
+        $lyricaUI.find('.lyrica-previous').click(function () {
+            player.previous();
+        });
+
+        $lyricaUI.find('.lyrica-next').click(function () {
+            player.next();
+        });
+
+        $lyricaUI.find('.lyrica-shuffle').click(function () {
+            player.shuffle();
+            $lyricaUI.toggleClass('lyrica-state-shuffled');
+        });
+
+    });
+
+</script>
+
+</body>
