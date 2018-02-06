@@ -4,7 +4,8 @@
 <head>
     <title>Lyrica</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="./css/lyrica.css">
+    <link rel="stylesheet" href="./css/perfect-scrollbar.css">
+    <link rel="stylesheet" href="./css/lyrica.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
 </head>
 
@@ -64,9 +65,11 @@
 <script src="./js/jquery.jplayer.min.js"></script>
 <script src="./js/jplayer.playlist.min.js"></script>
 <script src="./js/lrc.js"></script>
+<script src="./js/perfect-scrollbar.min.js"></script>
 <script>
 
-    var lyrics = null, player = null;
+    var lyrics = null;
+    var player = null;
 
     $(document).ready(function () {
 
@@ -79,74 +82,30 @@
 
         lyrics = new Lyrics({ container: lyrics_Selector });
 
-        player = new jPlayerPlaylist(
-            {
-                jPlayer: lyrica_Selector,
-                cssSelectorAncestor: lyricaUI_Selector,
-            },
-            [
+        const ps = new PerfectScrollbar(document.getElementsByClassName('lyrica-panel-playlist')[0]);
+
+        $.getJSON('./config/config.json', function (data) {
+            player = new jPlayerPlaylist(
                 {
-                    title:"Flower Dance",
-                    artist:"DJ Okawari",
-                    mp3: 'http://p3fsh3hac.bkt.clouddn.com/lyrica/music/FlowerDance.mp3',
-                    poster: 'http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/ACupOfCoffee.jpg'
+                    jPlayer: lyrica_Selector,
+                    cssSelectorAncestor: lyricaUI_Selector,
                 },
+                data.playlist,
                 {
-                    title:"Another Day",
-                    artist:"DJ Siesta",
-                    mp3: 'http://p3fsh3hac.bkt.clouddn.com/lyrica/music/AnotherDay.mp3',
-                    poster: 'http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/AnotherDay.jpg'
-                },
-                {
-                    title:"Town of Windmill",
-                    artist:"a_hisa",
-                    mp3: 'http://p3fsh3hac.bkt.clouddn.com/lyrica/music/TownOfWindmill.mp3',
-                    poster: 'http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/TownOfWindmill.jpg'
-                },
-                {
-                    title:"She",
-                    artist:"Groove Coverage",
-                    mp3: 'http://p3fsh3hac.bkt.clouddn.com/lyrica/music/She.mp3',
-                    lyrics: 'http://p3fsh3hac.bkt.clouddn.com/lyrica/lyrics/She.txt'
-                },
-                {
-                    title:"Spirit Of The Living God",
-                    artist:"Audrey Assad",
-                    mp3: 'http://p3fsh3hac.bkt.clouddn.com/lyrica/music/SpiritOfTheLivingGod.mp3',
-                    poster: 'http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/FortunateFall.jpg'
-                },
-                {
-                    title:"Sleepyhead",
-                    artist:"Galen Crew",
-                    mp3: 'http://p3fsh3hac.bkt.clouddn.com/lyrica/music/Sleepyhead.mp3',
-                    poster: 'http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/AcousticDaydreams.jpg'
-                },
-                {
-                    title:"Hypnotic",
-                    artist:"Zella Day",
-                    mp3: 'http://p3fsh3hac.bkt.clouddn.com/lyrica/music/Hypnotic.mp3',
-                    poster: 'http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/Hypnotic.jpg'
-                },
-                {
-                    title:"La La Land",
-                    artist:"Jax",
-                    mp3: 'http://p3fsh3hac.bkt.clouddn.com/lyrica/music/LaLaLand.mp3',
-                    poster: 'http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/LaLaLand.jpg'
+                    playlistOptions: {
+                        loopOnPrevious: true,
+                        displayTime: 0,
+                        addTime: 0,
+                        removeTime: 0,
+                        shuffleTime: 0
+                    },
+                    swfPath: '/js',
+                    supplied: 'mp3',
+                    useStateClassSkin: true
                 }
-            ],
-            {
-                playlistOptions: {
-                    loopOnPrevious: true,
-                    displayTime: 0,
-                    addTime: 0,
-                    removeTime: 0,
-                    shuffleTime: 0
-                },
-                swfPath: '/js',
-                supplied: 'mp3',
-                useStateClassSkin: true
-            }
-        );
+            );
+        });
+
 
         $lyrica.bind($.jPlayer.event.ready, function (e) {
             $lyricaUI.find('.jp-playlist li').append('<i class="fas fa-headphones"></i>');

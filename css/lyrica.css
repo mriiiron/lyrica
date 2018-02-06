@@ -32,7 +32,7 @@ html, body, .wrapper {
 
 #lyrica {
     margin: auto;
-    font-family: Verdana, Arial, sans-serif;
+    font-family: Verdana, "Microsoft YaHei", Arial, sans-serif;
     color: #c27c78;
 }
 
@@ -130,6 +130,7 @@ html, body, .wrapper {
 #lyrica .lyrica-console .lyrica-display .lyrica-display-inner .lyrica-artist {
     font-size: 0.75em;
     margin-top: 5px;
+    font-family: Verdana, "SimSun", Arial, sans-serif;
     color: #c27c78;
 }
 
@@ -293,4 +294,22 @@ html, body, .wrapper {
 
 #lyrica .lyrica-panel-lyrics .active {
     color: white;
+}
+
+.ps .ps__rail-y {
+
+}
+
+.ps .ps__rail-y:hover {
+    background: none;
+}
+
+.ps .ps__thumb-y {
+    width: 5px;
+    background-color: #3f0806;
+}
+
+.ps .ps__rail-y:hover > .ps__thumb-y, .ps__rail-y:focus > .ps__thumb-y {
+    background-color: #3f0806;
+    width: 8px;
 }

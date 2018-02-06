@@ -1,0 +1,22 @@
+html, body, .wrapper {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper {
+    background-color: #7b3230;
+    color: #c27a78;
+    font-family: Verdana, "Microsoft YaHei", Arial, sans-serif;
+    padding-top: 100px;
+}
+
+#config {
+    width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+#config tr {
+    line-height: 25px;
+}

@@ -1,0 +1,92 @@
+{
+    "playlist": [
+        {
+            "title": "Flower Dance",
+            "artist": "DJ Okawari",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/FlowerDance.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/ACupOfCoffee.jpg"
+        },
+        {
+            "title": "Another Day",
+            "artist": "DJ Siesta",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/AnotherDay.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/AnotherDay.jpg"
+        },
+        {
+            "title": "Town of Windmill",
+            "artist": "a_hisa",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/TownOfWindmill.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/TownOfWindmill.jpg"
+        },
+        {
+            "title": "She",
+            "artist": "Groove Coverage",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/She.mp3",
+            "lyrics": "http://p3fsh3hac.bkt.clouddn.com/lyrica/lyrics/She.txt"
+        },
+        {
+            "title": "Spirit Of The Living God",
+            "artist": "Audrey Assad",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/SpiritOfTheLivingGod.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/FortunateFall.jpg"
+        },
+        {
+            "title": "Sleepyhead",
+            "artist": "Galen Crew",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/Sleepyhead.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/AcousticDaydreams.jpg"
+        },
+        {
+            "title": "Hypnotic",
+            "artist": "Zella Day",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/Hypnotic.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/Hypnotic.jpg"
+        },
+        {
+            "title": "La La Land",
+            "artist": "Jax",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/LaLaLand.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/LaLaLand.jpg"
+        },
+        {
+            "title": "Can't Complain",
+            "artist": "Relient K",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/Can%27tComplain.mp3"
+        },
+        {
+            "title": "Shutterbug",
+            "artist": "Glenna",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/Shutterbug.mp3"
+        },
+        {
+            "title": "七夕",
+            "artist": "银临",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E4%B8%83%E5%A4%95.mp3"
+        },
+        {
+            "title": "山鬼",
+            "artist": "Winky诗",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E5%B1%B1%E9%AC%BC.mp3"
+        },
+        {
+            "title": "外婆桥",
+            "artist": "泠鸢yousa (Cover 洛天依)",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E5%A4%96%E5%A9%86%E6%A1%A5.mp3"
+        },
+        {
+            "title": "童话镇",
+            "artist": "暗杠",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E7%AB%A5%E8%AF%9D%E9%95%87.mp3"
+        },
+        {
+            "title": "煎熬",
+            "artist": "李佳薇",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E7%85%8E%E7%86%AC.mp3"
+        },
+        {
+            "title": "独家记忆",
+            "artist": "陈小春",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E7%8B%AC%E5%AE%B6%E8%AE%B0%E5%BF%86.mp3"
+        }
+    ]
+}
