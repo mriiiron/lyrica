@@ -24,7 +24,12 @@
                         <div class="jp-volume-bar-value"></div>
                     </div>
                 </div>
-                <div class="lyrica-carousel"></div>
+                <div class="lyrica-carousel">
+                    <div class="lyrica-song-poster"></div>
+                    <div class="lyrica-lyrics">
+                        <div class="jp-lyrics"></div>
+                    </div>
+                </div>
                 <div class="lyrica-progress">
                     <div class="jp-seek-bar">
                         <div class="jp-play-bar"></div>
@@ -39,11 +44,11 @@
                     </div>
                 </div>
                 <div class="lyrica-control-bar">
-                    <div class="control-button lyrica-lyrics"><i class="fas fa-closed-captioning"></i></div>
-                    <div class="control-button lyrica-previous"><i class="fas fa-step-backward"></i></div>
-                    <div class="control-button jp-play"><i class="fas fa-play"></i></div>
-                    <div class="control-button lyrica-next"><i class="fas fa-step-forward"></i></div>
-                    <div class="control-button lyrica-playlist"><i class="fas fa-list"></i></div>
+                    <div class="control-button lyrica-control-extra"><i class="far fas fa-bullseye fa-fw"></i></div>
+                    <div class="control-button lyrica-control-previous"><i class="fas fa-step-backward fa-fw"></i></div>
+                    <div class="control-button jp-play"><i class="fas fa-play fa-fw"></i></div>
+                    <div class="control-button lyrica-control-next"><i class="fas fa-step-forward fa-fw"></i></div>
+                    <div class="control-button lyrica-control-playlist"><i class="fas fa-list fa-fw"></i></div>
                     <div class="lyrica-control-bar-extra">
                         <div class="jp-repeat"><i class="fas fa-undo"></i></div>
                         <div class="lyrica-shuffle"><i class="fas fa-random"></i></div>
@@ -54,9 +59,7 @@
             <div class="lyrica-panel-playlist">
                 <div class="jp-playlist"><ul><li></li></ul></div>
             </div>
-            <div class="lyrica-panel-lyrics">
-                <div class="jp-lyrics"></div>
-            </div>
+            <div class="lyrica-panel-extra"></div>
         </div>
     </div>
 </div>
@@ -139,7 +142,7 @@
 
         $lyrica.bind($.jPlayer.event.setmedia, function (e) {
             let media = e.jPlayer.status.media;
-            $lyricaUI.find('.lyrica-carousel').css('background-image', 'url("' + (media.poster ? media.poster : './assets/default-cover.png') + '")');
+            $lyricaUI.find('.lyrica-song-poster').css('background-image', 'url("' + (media.poster ? media.poster : './assets/default-cover.jpg') + '")');
             $lyricaUI.find('.lyrica-artist').text(media.artist);
             if (media.lyrics) {
                 $.get(media.lyrics, null, function (data) {
@@ -147,9 +150,10 @@
                 }, 'text');
             }
             else {
-                $(lyrics_Selector).text('no lyrics.');
+                $(lyrics_Selector).html('<p>no lyrics.</p>');
                 lyrics.data = null;
             }
+            $(lyrics.container).css('top', lyrics.offsetTop + 'px');
         });
 
         $lyrica.bind($.jPlayer.event.timeupdate, function (e) {
@@ -170,19 +174,23 @@
             }
         });
 
-        $lyricaUI.find('.lyrica-playlist').click(function () {
+        $lyricaUI.find('.lyrica-carousel').click(function () {
+            $(this).toggleClass('lyrica-lyrics-displaying');
+        });
+
+        $lyricaUI.find('.lyrica-control-playlist').click(function () {
             $lyricaUI.toggleClass('lyrica-playlist-showing');
         });
 
-        $lyricaUI.find('.lyrica-lyrics').click(function () {
-            $lyricaUI.toggleClass('lyrica-lyrics-showing');
+        $lyricaUI.find('.lyrica-control-extra').click(function () {
+            $lyricaUI.toggleClass('lyrica-extra-showing');
         });
 
-        $lyricaUI.find('.lyrica-previous').click(function () {
+        $lyricaUI.find('.lyrica-control-previous').click(function () {
             player.previous();
         });
 
-        $lyricaUI.find('.lyrica-next').click(function () {
+        $lyricaUI.find('.lyrica-control-next').click(function () {
             player.next();
         });
 

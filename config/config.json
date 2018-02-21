@@ -28,7 +28,8 @@
             "title": "Spirit Of The Living God",
             "artist": "Audrey Assad",
             "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/SpiritOfTheLivingGod.mp3",
-            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/FortunateFall.jpg"
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/FortunateFall.jpg",
+            "lyrics": "http://p3fsh3hac.bkt.clouddn.com/lyrica/lyrics/SpiritOfTheLivingGod.txt"
         },
         {
             "title": "Sleepyhead",
@@ -66,7 +67,9 @@
         {
             "title": "山鬼",
             "artist": "Winky诗",
-            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E5%B1%B1%E9%AC%BC.mp3"
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E5%B1%B1%E9%AC%BC.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/%E5%B1%B1%E9%AC%BC.jpg",
+            "lyrics": "http://p3fsh3hac.bkt.clouddn.com/lyrica/lyrics/%E5%B1%B1%E9%AC%BC.txt"
         },
         {
             "title": "外婆桥",
@@ -76,7 +79,9 @@
         {
             "title": "童话镇",
             "artist": "暗杠",
-            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E7%AB%A5%E8%AF%9D%E9%95%87.mp3"
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E7%AB%A5%E8%AF%9D%E9%95%87.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/%E4%B8%80%E5%BF%B5.png",
+            "lyrics": "http://p3fsh3hac.bkt.clouddn.com/lyrica/lyrics/%E7%AB%A5%E8%AF%9D%E9%95%87.txt"
         },
         {
             "title": "煎熬",

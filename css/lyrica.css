@@ -83,9 +83,53 @@ html, body, .wrapper {
 
 #lyrica .lyrica-console .lyrica-carousel {
     flex: 0 0 200px;
+    position: relative;
+    cursor: pointer;
+}
+
+#lyrica .lyrica-console .lyrica-carousel .lyrica-song-poster {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    opacity: 1;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+}
+
+#lyrica .lyrica-console .lyrica-carousel .lyrica-lyrics {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 15px;
+    font-size: 0.75em;
+    text-align: center;
+    overflow: hidden;
+    opacity: 0;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+}
+
+#lyrica .lyrica-console .lyrica-carousel .jp-lyrics {
+    position: relative;
+}
+
+#lyrica .lyrica-console .lyrica-carousel .active {
+    color: white;
+}
+
+#lyrica .lyrica-console .lyrica-carousel.lyrica-lyrics-displaying .lyrica-song-poster {
+    opacity: 0.2;
+}
+
+#lyrica .lyrica-console .lyrica-carousel.lyrica-lyrics-displaying .lyrica-lyrics {
+    opacity: 1;
 }
 
 #lyrica .lyrica-console .lyrica-progress {
@@ -144,7 +188,6 @@ html, body, .wrapper {
 #lyrica .lyrica-console .lyrica-control-bar .control-button {
     flex: 0 0 20%;
     text-align: center;
-    font-size: 1.4em;
     padding: 0;
     background: none;
     border: none;
@@ -202,7 +245,7 @@ html, body, .wrapper {
     flex: 0 0 10px;
 }
 
-#lyrica .lyrica-panel-playlist, #lyrica .lyrica-panel-lyrics {
+#lyrica .lyrica-panel-playlist, #lyrica .lyrica-panel-extra {
     position: absolute;
     width: 250px;
     height: 370px;
@@ -265,35 +308,27 @@ html, body, .wrapper {
     color: white;
 }
 
-#lyrica .lyrica-playlist-showing .lyrica-playlist {
+#lyrica .lyrica-playlist-showing .lyrica-control-playlist {
     color: white;
 }
 
-#lyrica .lyrica-playlist-showing .lyrica-panel-playlist{
+#lyrica .lyrica-playlist-showing .lyrica-panel-playlist {
     display: block;
 }
 
-#lyrica .lyrica-lyrics-showing .lyrica-lyrics {
+#lyrica .lyrica-extra-showing .lyrica-control-extra {
     color: white;
 }
 
-#lyrica .lyrica-lyrics-showing .lyrica-panel-lyrics {
+#lyrica .lyrica-extra-showing .lyrica-panel-extra {
     display: block;
 }
 
-#lyrica .lyrica-panel-lyrics {
+#lyrica .lyrica-panel-extra {
     left: -250px;
     border-radius: 10px 0 0 10px;
     text-align: center;
     overflow: hidden;
-}
-
-#lyrica .lyrica-panel-lyrics .jp-lyrics {
-    position: relative;
-}
-
-#lyrica .lyrica-panel-lyrics .active {
-    color: white;
 }
 
 .ps .ps__rail-y {

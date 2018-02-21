@@ -5,7 +5,7 @@
         this.container = desc.container;
         this.data = null;
         this.currentLine = 0;
-        this.offsetTop = 100;
+        this.offsetTop = 50;
     }
 
     Lyrics.prototype.load = function (data) {
