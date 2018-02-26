@@ -233,7 +233,7 @@ html, body, .wrapper {
     top: 1px;
 }
 
-#lyrica .jp-state-looped .lyrica-console .lyrica-control-bar .lyrica-control-bar-extra .jp-repeat {
+#lyrica .lyrica-state-looped .lyrica-console .lyrica-control-bar .lyrica-control-bar-extra .lyrica-loop {
     color: #c27c78;
 }
 
@@ -295,8 +295,8 @@ html, body, .wrapper {
     display: none;
 }
 
-#lyrica .lyrica-panel-playlist li.jp-playlist-current svg {
-    display: block;
+#lyrica .lyrica-panel-playlist .jp-playlist .jp-playlist-current {
+    color: white;
 }
 
 #lyrica .lyrica-panel-playlist a {
