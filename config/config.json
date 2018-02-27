@@ -7,16 +7,16 @@
             "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/ACupOfCoffee.jpg"
         },
         {
-            "title": "Another Day",
-            "artist": "DJ Siesta",
-            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/AnotherDay.mp3",
-            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/AnotherDay.jpg"
-        },
-        {
             "title": "Town of Windmill",
             "artist": "a_hisa",
             "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/TownOfWindmill.mp3",
             "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/TownOfWindmill.jpg"
+        },
+        {
+            "title": "Another Day",
+            "artist": "DJ Siesta",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/AnotherDay.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/AnotherDay.jpg"
         },
         {
             "title": "She",

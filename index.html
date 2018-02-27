@@ -71,7 +71,7 @@
 <script src="./js/perfect-scrollbar.min.js"></script>
 <script>
 
-    var debug = false;
+    var debug = true;
 
     var lyrics = null;
     var player = null;
@@ -86,6 +86,7 @@
         this.original = [];
         this.shuffled = null;
         this.playByClickListItem = false;
+        this.playByPreviousEnded = false;
         for (let i = 0; i < desc.length; i++) { this.original.push(i); }
     }
 
@@ -108,6 +109,19 @@
         this.current = this.shuffled[this.current];
         this.shuffled = null;
         if (debug) { console.log('Unshuffled.'); }
+    };
+
+
+    // Override jPlayerPlaylist.previous()
+    jPlayerPlaylist.prototype.previous = function () {
+        playlist.current = (playlist.current - 1 < 0 ? playlist.original.length - 1 : playlist.current - 1);
+        player.play(playlist.shuffled ? playlist.shuffled[playlist.current] : playlist.original[playlist.current]);
+    };
+
+    // Override jPlayerPlaylist.next()
+    jPlayerPlaylist.prototype.next = function () {
+        playlist.current = (playlist.current + 1 >= playlist.original.length ? 0 : playlist.current + 1);
+        player.play(playlist.shuffled ? playlist.shuffled[playlist.current] : playlist.original[playlist.current]);
     };
 
 
@@ -146,11 +160,6 @@
             playlist = new Playlist({ length: data.playlist.length });
         });
 
-
-        $lyrica.bind($.jPlayer.event.ready, function (e) {
-
-        });
-
         $lyrica.bind($.jPlayer.event.play, function (e) {
             $lyricaUI.find('.jp-play svg').removeClass('fa-play').addClass('fa-pause');
             if (playlist.playByClickListItem) {
@@ -165,6 +174,10 @@
 
         $lyrica.bind($.jPlayer.event.pause, function (e) {
             $lyricaUI.find('.jp-play svg').removeClass('fa-pause').addClass('fa-play');
+        });
+
+        $lyrica.bind($.jPlayer.event.ended, function (e) {
+            console.log('$.jPlayer.event.ended');
         });
 
         $lyrica.bind($.jPlayer.event.volumechange, function (e) {
@@ -232,13 +245,11 @@
         });
 
         $lyricaUI.find('.lyrica-control-previous').click(function () {
-            playlist.current = (playlist.current - 1 < 0 ? playlist.original.length - 1 : playlist.current - 1);
-            player.play(playlist.shuffled ? playlist.shuffled[playlist.current] : playlist.original[playlist.current]);
+            player.previous();
         });
 
         $lyricaUI.find('.lyrica-control-next').click(function () {
-            playlist.current = (playlist.current + 1 >= playlist.original.length ? 0 : playlist.current + 1);
-            player.play(playlist.shuffled ? playlist.shuffled[playlist.current] : playlist.original[playlist.current]);
+            player.next();
         });
 
         $lyricaUI.find('.lyrica-loop').click(function () {
