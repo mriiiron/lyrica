@@ -62,7 +62,8 @@
         {
             "title": "七夕",
             "artist": "银临",
-            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E4%B8%83%E5%A4%95.mp3"
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E4%B8%83%E5%A4%95.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/600.jpg"
         },
         {
             "title": "山鬼",
@@ -74,7 +75,8 @@
         {
             "title": "外婆桥",
             "artist": "泠鸢yousa (Cover 洛天依)",
-            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E5%A4%96%E5%A9%86%E6%A1%A5.mp3"
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E5%A4%96%E5%A9%86%E6%A1%A5.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/13.jpg"
         },
         {
             "title": "童话镇",
@@ -86,12 +88,15 @@
         {
             "title": "煎熬",
             "artist": "李佳薇",
-            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E7%85%8E%E7%86%AC.mp3"
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E7%85%8E%E7%86%AC.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/%E6%84%9F%E8%B0%A2%E7%88%B1%E4%BA%BA.jpg",
+            "lyrics": "http://p3fsh3hac.bkt.clouddn.com/lyrica/lyrics/%E7%85%8E%E7%86%AC.txt"
         },
         {
             "title": "独家记忆",
             "artist": "陈小春",
-            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E7%8B%AC%E5%AE%B6%E8%AE%B0%E5%BF%86.mp3"
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E7%8B%AC%E5%AE%B6%E8%AE%B0%E5%BF%86.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/%E7%8B%AC%E5%AE%B6%E8%AE%B0%E5%BF%86.jpg"
         }
     ]
 }
