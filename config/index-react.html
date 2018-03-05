@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Config | Lyrica</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/style.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+</head>
+
+<body>
+
+<div class="wrapper">
+    <div id="app"></div>
+</div>
+
+<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script>
+
+    class SongList extends React.Component {
+        constructor(props) {
+            super(props);
+        }
+        render() {
+            let items = this.props.songs.map((song) => React.createElement("li", { key: song.toString() }, song));
+            return React.createElement("ul", null, items);
+        }
+    }
+
+    const test = [1, 2, 3, 4, 5];
+    ReactDOM.render(
+        React.createElement(SongList, { songs: test }),
+        document.getElementById('app')
+    )
+
+</script>
+
+</body>
