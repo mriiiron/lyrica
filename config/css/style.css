@@ -9,14 +9,51 @@ html, body, .wrapper {
     color: #c27a78;
     font-family: Verdana, "Microsoft YaHei", Arial, sans-serif;
     padding-top: 100px;
+    box-sizing: border-box;
 }
 
-#config {
+table {
     width: 800px;
     margin: 0 auto;
     text-align: left;
 }
 
-#config tr {
+table tr {
     line-height: 25px;
+}
+
+table a {
+    color: #c27a78;
+}
+
+table a:hover {
+    color: white;
+}
+
+nav {
+    width: 800px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+nav ul {
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 50px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #c27a78;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+nav li.active a {
+    color: white;
 }

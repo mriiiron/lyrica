@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lyrica Config (React)</title>
+    <meta charset='UTF-8'>
+    <link rel='stylesheet' href='./css/style.css'>
+    <script defer src='https://use.fontawesome.com/releases/v5.0.4/js/all.js'></script>
+</head>
+
+<body>
+
+<div class='wrapper'>
+    <nav>
+        <ul>
+            <li><a href="./index.html">jQuery</a></li>
+            <li class="active"><a href="./react.html">React.js</a></li>
+            <li><a href="./vue.html">Vue.js</a></li>
+        </ul>
+    </nav>
+    <div id='app'></div>
+</div>
+
+<script crossorigin src='https://unpkg.com/react@16/umd/react.production.min.js'></script>
+<script crossorigin src='https://unpkg.com/react-dom@16/umd/react-dom.production.min.js'></script>
+<script>
+
+    let e = React.createElement;
+
+    function SongTableRow(props) {
+        let song = props.song;
+        let noFile = e('i', { className: 'fas fa-minus' });
+        let title = e('td', null, song.title);
+        let artist = e('td', null, song.artist);
+        let mp3 = e('td', null, song.mp3 ? e('a', { href: song.mp3, target: '_blank' }, e('i', { className: 'fas fa-music' })) : noFile);
+        let poster = e('td', null, song.poster ? e('a', { href: song.poster, target: '_blank' }, e('i', { className: 'fas fa-file-image' })) : noFile);
+        let lyrics = (song.lyrics ? e('a', { href: song.lyrics, target: '_blank' }, e('i', { className: 'fas fa-file-alt' })) : noFile);
+        return e('tr', null, title, artist, mp3, poster, lyrics);
+    }
+
+    function SongTable(props) {
+        let items = props.playlist.map((song, index) => e(SongTableRow, { key: index, song: song }));
+        let headerRow = e('tr', null, e('th', null, 'Song'), e('th', null, 'Artist'), e('th', null, 'MP3'), e('th', null, 'Poster'), e('th', null, 'Lyrics'));
+        let emptyRow = e('tr', null, e('th', null, '\xA0'));
+        return e('table', null, e('thead', null, headerRow, emptyRow), e('tbody', null, items));
+    }
+
+    let xhr = new XMLHttpRequest();
+    xhr.responseType = 'json';
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            ReactDOM.render(e(SongTable, { playlist: xhr.response.playlist }), document.getElementById('app'));
+        }
+    };
+    xhr.open('GET', './config.json');
+    xhr.send();
+
+</script>
+
+</body>

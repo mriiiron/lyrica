@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Config | Lyrica</title>
+    <title>Lyrica Config (jQuery)</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./css/style.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
@@ -11,7 +11,14 @@
 <body>
 
 <div class="wrapper">
-    <table id="config">
+    <nav>
+        <ul>
+            <li class="active"><a href="./index.html">jQuery</a></li>
+            <li><a href="./react.html">React.js</a></li>
+            <li><a href="./vue.html">Vue.js</a></li>
+        </ul>
+    </nav>
+    <table>
         <thead>
             <tr><th>Song</th><th>Artist</th><th>MP3</th><th>Poster</th><th>Lyrics</th></tr>
             <tr><th>&nbsp;</th></tr>
@@ -25,13 +32,13 @@
 
     $(document).ready(function () {
         $.getJSON('./config.json', function (data) {
-            let $tbody = $('#config tbody');
+            let $tbody = $('tbody');
             for (let i = 0; i < data.playlist.length; i++) {
                 let item = data.playlist[i];
                 let title = item.title, artist = item.artist;
-                let mp3 = (item.mp3 ? '<i class="fas fa-music"></i>' : '<i class="fas fa-minus"></i>');
-                let poster = (item.poster ? '<i class="fas fa-file-image"></i>' : '<i class="fas fa-minus"></i>');
-                let lyrics = (item.lyrics ? '<i class="fas fa-file-alt"></i>' : '<i class="fas fa-minus"></i>');
+                let mp3 = (item.mp3 ? '<a href="' + item.mp3 + '"><i class="fas fa-music"></i></a>' : '<i class="fas fa-minus"></i>');
+                let poster = (item.poster ? '<a href="' + item.poster + '"><i class="fas fa-file-image"></i></a>' : '<i class="fas fa-minus"></i>');
+                let lyrics = (item.lyrics ? '<a href="' + item.lyrics + '"><i class="fas fa-file-alt"></i></a>' : '<i class="fas fa-minus"></i>');
                 $tbody.append('<tr><td>' + title + '</td><td>' + artist + '</td><td>' + mp3 + '</td><td>' + poster + '</td><td>' + lyrics + '</td></tr>')
             }
         });
