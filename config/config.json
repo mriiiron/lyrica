@@ -120,6 +120,13 @@
             "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E6%A3%A0%E6%A2%A8%E7%85%8E%E9%9B%AA.mp3",
             "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/600.jpg",
             "lyrics": "http://p3fsh3hac.bkt.clouddn.com/lyrica/lyrics/%E6%A3%A0%E6%A2%A8%E7%85%8E%E9%9B%AA.txt"
+        },
+        {
+            "title": "阿刁",
+            "artist": "赵雷",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E9%98%BF%E5%88%81.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/lei.jpg",
+            "lyrics": "http://p3fsh3hac.bkt.clouddn.com/lyrica/lyrics/%E9%98%BF%E5%88%81.txt"
         }
     ]
 }
