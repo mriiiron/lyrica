@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>LRC Editor</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="mriiiron">
+    <meta name="copyright" content="mriiiron">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+
+<div class="wrapper">
+    <div id="lrc-editor">
+        <div class="file-select">
+            <span class="display">Select Audio File &hellip;</span>
+            <input class="control" type="file" accept="audio/*"></input>
+        </div>
+        <audio src="" controls>Browser or a better browser, it's your problem.</audio>
+        <textarea placeholder="Paste your lyric here ..." autofocus></textarea>
+        <div id="toolbar">
+            <div class="tool-wrapper"><a class="button" href="#" id="insert-tag" accesskey="z">Insert Time Tag</a></div>
+            <div class="tool-wrapper"><a class="button" href="#" id="replace-tag" accesskey="x">Replace Time Tag</a></div>
+            <div class="tool-wrapper"><a class="button" href="#" id="remove-tag" accesskey="c">Remove Time Tag</a></div>
+        </div>
+    </div>
+</div>
+
+<p class="debugger">Copyright © 2016 Caiyi.us | <a href="//github.com/mriiiron/mriiiron.github.io" target="_blank">GitHub Repo</a></p>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/lrc.js"></script>
+
+<script>
+
+domAudioInput.onchange = function () {
+    if (domAudioInput.files.length !== 0) {
+        $("#file-uploader-display").text('"' + domAudioInput.files[0].name + '" is loaded. Click to choose another file ...');
+        domAudio.src = URL.createObjectURL(domAudioInput.files[0]);
+        domAudio.load();
+    }
+};
+
+$("#insert-tag").click(function () {
+    editTag("insert");
+});
+
+$("#replace-tag").click(function () {
+    editTag("replace");
+});
+
+$("#remove-tag").click(function () {
+    editTag("remove");
+});
+
+</script>
+
+</body>
