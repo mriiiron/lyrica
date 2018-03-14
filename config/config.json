@@ -97,6 +97,36 @@
             "artist": "陈小春",
             "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E7%8B%AC%E5%AE%B6%E8%AE%B0%E5%BF%86.mp3",
             "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/%E7%8B%AC%E5%AE%B6%E8%AE%B0%E5%BF%86.jpg"
+        },
+        {
+            "title": "三吋日光",
+            "artist": "梁静茹",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E4%B8%89%E5%90%8B%E6%97%A5%E5%85%89.mp3"
+        },
+        {
+            "title": "好夜晚Good Night",
+            "artist": "梁静茹",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E5%A5%BD%E5%A4%9C%E6%99%9AGood%20Night.mp3"
+        },
+        {
+            "title": "丝路",
+            "artist": "梁静茹",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E4%B8%9D%E8%B7%AF.mp3",
+            "lyrics": "http://p3fsh3hac.bkt.clouddn.com/lyrica/lyrics/%E4%B8%9D%E8%B7%AF.txt"
+        },
+        {
+            "title": "棠梨煎雪",
+            "artist": "银临",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E6%A3%A0%E6%A2%A8%E7%85%8E%E9%9B%AA.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/600.jpg",
+            "lyrics": "http://p3fsh3hac.bkt.clouddn.com/lyrica/lyrics/%E6%A3%A0%E6%A2%A8%E7%85%8E%E9%9B%AA.txt"
+        },
+        {
+            "title": "阿刁",
+            "artist": "赵雷",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E9%98%BF%E5%88%81.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/lei.jpg",
+            "lyrics": "http://p3fsh3hac.bkt.clouddn.com/lyrica/lyrics/%E9%98%BF%E5%88%81.txt"
         }
     ]
 }
