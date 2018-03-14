@@ -67,7 +67,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="./js/jquery.jplayer.min.js"></script>
 <script src="./js/jplayer.playlist.min.js"></script>
-<script src="./js/lrc.js"></script>
+<script src="./js/lrc-player.js"></script>
 <script src="./js/perfect-scrollbar.min.js"></script>
 <script>
 
@@ -134,7 +134,7 @@
         let $lyrica = $(lyrica_Selector);
         let $lyricaUI = $(lyricaUI_Selector);
 
-        lyrics = new Lyrics({ container: lyrics_Selector });
+        lrcPlayer = new LRCPlayer({ el: lyrics_Selector });
 
         const ps = new PerfectScrollbar(document.getElementsByClassName('lyrica-panel-playlist')[0]);
 
@@ -204,27 +204,27 @@
             $lyricaUI.find('.lyrica-artist').text(media.artist);
             if (media.lyrics) {
                 $.get(media.lyrics, null, function (data) {
-                    lyrics.load(data);
+                    lrcPlayer.load(data);
                 }, 'text');
             }
             else {
                 $(lyrics_Selector).html('<p>no lyrics.</p>');
-                lyrics.data = null;
+                lrcPlayer.data = null;
             }
-            $(lyrics.container).css('top', lyrics.offsetTop + 'px');
+            $(lrcPlayer.el).css('top', lrcPlayer.offsetTop + 'px');
         });
 
         $lyrica.bind($.jPlayer.event.timeupdate, function (e) {
-            if (lyrics.data) {
-                for (let i = lyrics.data.length - 1; i >= 0; i--) {
-                    if (e.jPlayer.status.currentTime >= lyrics.data[i][0]) {
-                        if (i != lyrics.currentLine) {
-                            let $container = $(lyrics.container);
+            if (lrcPlayer.data) {
+                for (let i = lrcPlayer.data.length - 1; i >= 0; i--) {
+                    if (e.jPlayer.status.currentTime >= lrcPlayer.data[i][0]) {
+                        if (i != lrcPlayer.currentLine) {
+                            let $container = $(lrcPlayer.el);
                             let $currentLine = $container.find('p').eq(i);
-                            lyrics.currentLine = i;
+                            lrcPlayer.currentLine = i;
                             $container.find('.active').removeClass('active');
                             $currentLine.addClass('active');
-                            $container.css('top', (lyrics.offsetTop - $currentLine[0].offsetTop) + 'px');
+                            $container.css('top', (lrcPlayer.offsetTop - $currentLine[0].offsetTop) + 'px');
                         }
                         break;
                     }

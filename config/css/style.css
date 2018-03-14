@@ -7,7 +7,7 @@ html, body, .wrapper {
 .wrapper {
     background-color: #7b3230;
     color: #c27a78;
-    font-family: Verdana, "Microsoft YaHei", Arial, sans-serif;
+    font-family: Arial, "Microsoft YaHei", sans-serif;
     padding-top: 100px;
     box-sizing: border-box;
 }

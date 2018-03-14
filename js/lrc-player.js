@@ -1,14 +1,15 @@
 (function (window, $) {
     'use strict'
 
-    function Lyrics(desc) {
-        this.container = desc.container;
+    function LRCPlayer(desc) {
+        this.el = desc.el;
+        $(this.el).css('position', 'relative');
         this.data = null;
         this.currentLine = 0;
         this.offsetTop = 50;
     }
 
-    Lyrics.prototype.load = function (data) {
+    LRCPlayer.prototype.load = function (data) {
         let lines = data.split("\n");
         let regexp = /\[\d{2}:\d{2}.\d{2}\]/g;
         let result = [];
@@ -31,15 +32,15 @@
         });
         this.data = result;
         this.currentLine = -1;
-        let $container = $(this.container);
+        let $container = $(this.el);
         $container.empty();
         for (var i = 0; i < result.length; i++) {
             $container.append('<p>' + result[i][1] + '</p>');
         }
     }
 
-    if (typeof (window.Lyrics) === 'undefined') {
-        window.Lyrics = Lyrics;
+    if (typeof (window.LRCPlayer) === 'undefined') {
+        window.LRCPlayer = LRCPlayer;
     }
 
 })(window, $);

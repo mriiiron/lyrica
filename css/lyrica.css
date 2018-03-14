@@ -116,10 +116,6 @@ html, body, .wrapper {
     transition: opacity 0.5s;
 }
 
-#lyrica .lyrica-console .lyrica-carousel .jp-lyrics {
-    position: relative;
-}
-
 #lyrica .lyrica-console .lyrica-carousel .active {
     color: white;
 }
