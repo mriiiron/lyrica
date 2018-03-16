@@ -80,7 +80,7 @@
         editor.focus();
         $editor.scrollTop(currentScrollTop);
         editor.setSelectionRange(nextLineStartPos, nextLineStartPos);
-        scrollToCursor();
+        this.scrollToCursor();
     }
 
     LRCMaker.prototype.removeTag = function () {
@@ -100,7 +100,7 @@
         editor.focus();
         $editor.scrollTop(currentScrollTop);
         editor.setSelectionRange(lineStartPos, lineStartPos);
-        scrollToCursor();
+        this.scrollToCursor();
     }
 
     LRCMaker.prototype.editTag = function (action) {
@@ -151,7 +151,7 @@
         editor.focus();
         $editor.scrollTop(currentScrollTop);
         editor.setSelectionRange(scrollTo, scrollTo);
-        scrollToCursor($editor);
+        this.scrollToCursor($editor);
     }
 
 

@@ -10,13 +10,13 @@
     }
 
     LRCPlayer.prototype.load = function (data) {
-        let lines = data.split("\n");
+        let lines = data.split('\n');
         let regexp = /\[\d{2}:\d{2}.\d{2}\]/g;
         let result = [];
         while (!regexp.test(lines[0]) && lines.length > 0) {
             lines = lines.slice(1);
         }
-        if (lines[lines.length - 1].length === 0) {
+        if (lines[lines.length - 1].length == 0) {
             lines.pop();
         }
         lines.forEach(function (line, i, arr_i) {

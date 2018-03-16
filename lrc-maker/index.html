@@ -71,7 +71,11 @@
         });
 
         $app.find('.main .editor textarea').change(function () {
-            console.log('editor changed');
+
+            lrcPlayer.load($(this).val());
+            debugger;
+
+
         });
 
         $app.find('.file-select .control').change(function () {
