@@ -12,12 +12,12 @@ html, body, .wrapper {
 }
 
 a {
-    color: #c27c78;
+    color: #7b3230;
     text-decoration: none;
 }
 
 a:hover {
-    color: white;
+    color: #c27c78;
 }
 
 
@@ -78,8 +78,9 @@ a:hover {
 
 #lrc-editor .main .editor .menu {
     flex: 0 0 auto;
-    padding: 5px 0;
+    padding: 5px 15px;
     position: relative;
+    background-color: #3f0806;
 }
 
 #lrc-editor .main .editor .menu ul {
@@ -92,6 +93,7 @@ a:hover {
     display: inline-block;
     font-size: 1.25em;
     margin-right: 3px;
+    line-height: 25px;
 }
 
 #lrc-editor .main .editor .menu ul li.message {
@@ -115,47 +117,15 @@ a:hover {
     flex: 0 0 50%;
     box-sizing: border-box;
     padding: 20px;
+    overflow: hidden;
+    text-align: center;
+    background-color: #3f0806;
 }
 
 
-
-
-.tool-wrapper {
-    display: inline;
-    position: relative;
-}
-
-.button:after {
-    position: absolute;
-    left: 0;
-    top: 15px;
+#lrc-editor .main .preview .active {
     color: white;
-    opacity: 0.0;
-    white-space: nowrap;
-    -webkit-transition: top .15s ease-in-out, opacity .15s ease-in-out;
-    -moz-transition: top .15s ease-in-out, opacity .15s ease-in-out;
-    -ms-transition: top .15s ease-in-out, opacity .15s ease-in-out;
-    -o-transition: top .15s ease-in-out, opacity .15s ease-in-out;
-    transition: top .15s ease-in-out, opacity .15s ease-in-out;
 }
-
-#insert-tag:after {
-    content: "Insert a tag of current time to current line (Alt + Z)";
-}
-
-#replace-tag:after {
-    content: "Replace tags in current line with a tag of current time (Alt + X)";
-}
-
-#remove-tag:after {
-    content: "Remove all tags in current line (Alt + C)";
-}
-
-.button:hover:after {
-    top: 30px;
-    opacity: 1.0;
-}
-
 
 .debugger {
     position: fixed;

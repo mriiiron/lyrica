@@ -134,7 +134,10 @@
         let $lyrica = $(lyrica_Selector);
         let $lyricaUI = $(lyricaUI_Selector);
 
-        lrcPlayer = new LRCPlayer({ el: lyrics_Selector });
+        lrcPlayer = new LRCPlayer({
+            el: lyrics_Selector,
+            offsetTop: 50
+        });
 
         const ps = new PerfectScrollbar(document.getElementsByClassName('lyrica-panel-playlist')[0]);
 
@@ -208,28 +211,13 @@
                 }, 'text');
             }
             else {
+                lrcPlayer.clear();
                 $(lyrics_Selector).html('<p>no lyrics.</p>');
-                lrcPlayer.data = null;
             }
-            $(lrcPlayer.el).css('top', lrcPlayer.offsetTop + 'px');
         });
 
         $lyrica.bind($.jPlayer.event.timeupdate, function (e) {
-            if (lrcPlayer.data) {
-                for (let i = lrcPlayer.data.length - 1; i >= 0; i--) {
-                    if (e.jPlayer.status.currentTime >= lrcPlayer.data[i][0]) {
-                        if (i != lrcPlayer.currentLine) {
-                            let $container = $(lrcPlayer.el);
-                            let $currentLine = $container.find('p').eq(i);
-                            lrcPlayer.currentLine = i;
-                            $container.find('.active').removeClass('active');
-                            $currentLine.addClass('active');
-                            $container.css('top', (lrcPlayer.offsetTop - $currentLine[0].offsetTop) + 'px');
-                        }
-                        break;
-                    }
-                }
-            }
+            lrcPlayer.update(e.jPlayer.status.currentTime);
         });
 
         $lyricaUI.find('.lyrica-carousel').click(function () {

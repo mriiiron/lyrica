@@ -3,41 +3,73 @@
 
     function LRCPlayer(desc) {
         this.el = desc.el;
-        $(this.el).css('position', 'relative');
+        this.offsetTop = desc.offsetTop ? desc.offsetTop : 0;
         this.data = null;
         this.currentLine = 0;
-        this.offsetTop = 50;
+        $(this.el).css('position', 'relative');
+    }
+
+    LRCPlayer.parse = function (data) {
+        let regexp = /\[\d{2}:\d{2}.\d{2}\]/g;
+        function linesCleanup(input) {
+            let output = [];
+            for (let i = 0; i < input.length; i++) {
+                if (input[i].search(regexp) >= 0) {
+                    output.push(input[i]);
+                }
+                else {
+                    console.warn('LRCPlayer.load(): Line ' + i + ' is not a valid lyrics line, would be ignored.\nLine: "' + input[i] + '"');
+                }
+            }
+            return output;
+        }
+        let lines = linesCleanup(data.split('\n'));
+        let result = [];
+        for (let i = 0; i < lines.length; i++) {
+            let line = lines[i];
+            let nodes = line.match(regexp);
+            let text = line.replace(regexp, '').trim();
+            for (let j = 0; j < nodes.length; j++) {
+                let t = nodes[j].slice(1, -1).split(':');
+                result.push([parseInt(t[0], 10) * 60 + parseFloat(t[1]), (text == '' ? '&nbsp;' : text)]);
+            }
+        }
+        return result.sort((a, b) => (a[0] - b[0]));
     }
 
     LRCPlayer.prototype.load = function (data) {
-        let lines = data.split('\n');
-        let regexp = /\[\d{2}:\d{2}.\d{2}\]/g;
-        let result = [];
-        while (!regexp.test(lines[0]) && lines.length > 0) {
-            lines = lines.slice(1);
-        }
-        if (lines[lines.length - 1].length == 0) {
-            lines.pop();
-        }
-        lines.forEach(function (line, i, arr_i) {
-            let timeNodes = line.match(regexp);
-            let lyricLine = line.replace(regexp, '').trim();
-            timeNodes.forEach(function (timeNode, j, arr_j) {
-                var t = timeNode.slice(1, -1).split(':');
-                result.push([parseInt(t[0], 10) * 60 + parseFloat(t[1]), (lyricLine == '' ? '&nbsp;' : lyricLine)]);
-            });
-        });
-        result.sort(function (a, b) {
-            return a[0] - b[0];
-        });
-        this.data = result;
+        this.data = LRCPlayer.parse(data);
         this.currentLine = -1;
         let $container = $(this.el);
         $container.empty();
-        for (var i = 0; i < result.length; i++) {
-            $container.append('<p>' + result[i][1] + '</p>');
+        for (var i = 0; i < this.data.length; i++) {
+            $container.append('<p>' + this.data[i][1] + '</p>');
         }
-    }
+        $container.css('top', this.offsetTop + 'px');
+    };
+
+    LRCPlayer.prototype.clear = function () {
+        this.data = null;
+        $(this.el).css('top', this.offsetTop + 'px');
+    };
+
+    LRCPlayer.prototype.update = function (time) {
+        if (this.data) {
+            let $container = $(this.el);
+            for (let i = this.data.length - 1; i >= 0; i--) {
+                if (time >= this.data[i][0]) {
+                    if (i != this.currentLine) {
+                        let $currentLine = $container.find('p').eq(i);
+                        this.currentLine = i;
+                        $container.find('.active').removeClass('active');
+                        $currentLine.addClass('active');
+                        $container.css('top', (this.offsetTop - $currentLine[0].offsetTop) + 'px');
+                    }
+                    break;
+                }
+            }
+        }
+    };
 
     if (typeof (window.LRCPlayer) === 'undefined') {
         window.LRCPlayer = LRCPlayer;

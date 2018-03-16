@@ -24,7 +24,7 @@
             <div class="editor">
                 <div class="menu">
                     <ul>
-                        <li class="tool save" data-hint="Save to File (Coming Soon)"><a href="#"><i class="fas fa-save"></i></a></li>
+                        <li class="tool save" data-hint="Save to Text File"><a href="#"><i class="fas fa-save"></i></a></li>
                         <li>&nbsp;</li>
                         <li class="tool add" data-hint="Add Time Tag (Alt + Z)"><a href="#" accesskey="z"><i class="fas fa-plus"></i></a></li>
                         <li class="tool replace" data-hint="Replace Time Tag (Alt + X)"><a href="#" accesskey="x"><i class="fas fa-sync-alt"></i></a></li>
@@ -44,22 +44,26 @@
 <p class="debugger">Copyright © 2016 Caiyi.us</p>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="./js/FileSaver.min.js"></script>
 <script src="./js/lrc-maker.js"></script>
 <script src="../js/lrc-player.js"></script>
 
 <script>
 
+    var lrcMaker, lrcPlayer;
+
     $(document).ready(function () {
 
-        let lrcMaker = new LRCMaker({
+        lrcMaker = new LRCMaker({
             el: {
                 audio: '#audio',
                 textarea: '#textarea'
             }
         });
 
-        let lrcPlayer = new LRCPlayer({
-            el: '#lyrics-preview'
+        lrcPlayer = new LRCPlayer({
+            el: '#lyrics-preview',
+            offsetTop: 200
         });
 
         let $app = $('#lrc-editor');
@@ -71,11 +75,7 @@
         });
 
         $app.find('.main .editor textarea').change(function () {
-
             lrcPlayer.load($(this).val());
-            debugger;
-
-
         });
 
         $app.find('.file-select .control').change(function () {
@@ -89,7 +89,8 @@
         });
 
         $app.find('.menu .tool.save').click(function () {
-            // TODO
+            let blob = new Blob([ $(lrcMaker.el.textarea).val().replace(/\n/g, '\r\n') ], { type: 'text/plain;charset=utf-8' });
+            saveAs(blob, 'lyrics.lrc.txt');
         });
 
         $app.find('.menu .tool.add').click(function () {
@@ -103,6 +104,11 @@
         $app.find('.menu .tool.remove').click(function () {
             lrcMaker.editTag('remove');
         });
+
+        let audio = $app.find('audio')[0];
+        audio.ontimeupdate = function (e) {
+            lrcPlayer.update(e.target.currentTime);
+        };
 
     });
 
