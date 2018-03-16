@@ -126,11 +126,3 @@ a:hover {
 #lrc-editor .main .preview .active {
     color: white;
 }
-
-.debugger {
-    position: fixed;
-    margin: 0;
-    right: 20px;
-    bottom: 20px;
-    color: #c27c78;
-}
