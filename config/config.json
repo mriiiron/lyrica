@@ -101,22 +101,6 @@
             "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/%E7%8B%AC%E5%AE%B6%E8%AE%B0%E5%BF%86.jpg"
         },
         {
-            "title": "三吋日光",
-            "artist": "梁静茹",
-            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E4%B8%89%E5%90%8B%E6%97%A5%E5%85%89.mp3"
-        },
-        {
-            "title": "好夜晚Good Night",
-            "artist": "梁静茹",
-            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E5%A5%BD%E5%A4%9C%E6%99%9AGood%20Night.mp3"
-        },
-        {
-            "title": "丝路",
-            "artist": "梁静茹",
-            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E4%B8%9D%E8%B7%AF.mp3",
-            "lyrics": "http://p3fsh3hac.bkt.clouddn.com/lyrica/lyrics/%E4%B8%9D%E8%B7%AF.txt"
-        },
-        {
             "title": "棠梨煎雪",
             "artist": "银临",
             "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E6%A3%A0%E6%A2%A8%E7%85%8E%E9%9B%AA.mp3",
@@ -136,6 +120,40 @@
             "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E8%8E%89%E8%8E%89%E5%AE%89.mp3",
             "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/watch.jpg",
             "lyrics": "http://p3fsh3hac.bkt.clouddn.com/lyrica/lyrics/%E8%8E%89%E8%8E%89%E5%AE%89.txt"
+        },
+        {
+            "title": "有梦好甜蜜",
+            "artist": "胡彦斌",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E6%9C%89%E6%A2%A6%E5%A5%BD%E7%94%9C%E8%9C%9C.mp3"
+        },
+        {
+            "title": "老街",
+            "artist": "李荣浩",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E8%80%81%E8%A1%97.mp3"
+        },
+        {
+            "title": "寻遍星空",
+            "artist": "洛天依",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E5%AF%BB%E9%81%8D%E6%98%9F%E7%A9%BA.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/stars.png",
+            "lyrics": "http://p3fsh3hac.bkt.clouddn.com/lyrica/lyrics/%E5%AF%BB%E9%81%8D%E6%98%9F%E7%A9%BA.txt"
+        },
+        {
+            "title": "八辈子",
+            "artist": "洛天依",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E5%85%AB%E8%BE%88%E5%AD%90.mp3"
+        },
+        {
+            "title": "神的女儿们",
+            "artist": "心华",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E7%A5%9E%E7%9A%84%E5%A5%B3%E5%84%BF%E4%BB%AC.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/%E5%BF%83%E5%8D%8E.jpg"
+        },
+        {
+            "title": "诗",
+            "artist": "心华",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E8%AF%97.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/%E5%BF%83%E5%8D%8E.jpg"
         }
     ]
 }
