@@ -129,7 +129,8 @@
         {
             "title": "老街",
             "artist": "李荣浩",
-            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E8%80%81%E8%A1%97.mp3"
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E8%80%81%E8%A1%97.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/windowsill.jpg"
         },
         {
             "title": "寻遍星空",
@@ -141,7 +142,9 @@
         {
             "title": "八辈子",
             "artist": "洛天依",
-            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E5%85%AB%E8%BE%88%E5%AD%90.mp3"
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E5%85%AB%E8%BE%88%E5%AD%90.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/%E5%85%AB%E8%BE%88%E5%AD%90.jpg",
+            "lyrics": "http://p3fsh3hac.bkt.clouddn.com/lyrica/lyrics/%E5%85%AB%E8%BE%88%E5%AD%90.txt"
         },
         {
             "title": "神的女儿们",
@@ -153,7 +156,8 @@
             "title": "诗",
             "artist": "心华",
             "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E8%AF%97.mp3",
-            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/%E5%BF%83%E5%8D%8E.jpg"
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/%E5%BF%83%E5%8D%8E.jpg",
+            "lyrics": "http://p3fsh3hac.bkt.clouddn.com/lyrica/lyrics/%E8%AF%97.txt"
         }
     ]
 }
