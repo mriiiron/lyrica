@@ -57,7 +57,8 @@
         {
             "title": "Shutterbug",
             "artist": "Glenna",
-            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/Shutterbug.mp3"
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/Shutterbug.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/RunawayHeart.jpg"
         },
         {
             "title": "七夕",
@@ -124,13 +125,16 @@
         {
             "title": "有梦好甜蜜",
             "artist": "胡彦斌",
-            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E6%9C%89%E6%A2%A6%E5%A5%BD%E7%94%9C%E8%9C%9C.mp3"
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E6%9C%89%E6%A2%A6%E5%A5%BD%E7%94%9C%E8%9C%9C.mp3",
+            "lyrics": "http://p3fsh3hac.bkt.clouddn.com/lyrica/lyrics/%E6%9C%89%E6%A2%A6%E5%A5%BD%E7%94%9C%E8%9C%9C.txt",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/feng.jpg"
         },
         {
             "title": "老街",
             "artist": "李荣浩",
             "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E8%80%81%E8%A1%97.mp3",
-            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/windowsill.jpg"
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/windowsill.jpg",
+            "lyrics": "http://p3fsh3hac.bkt.clouddn.com/lyrica/lyrics/%E8%80%81%E8%A1%97.txt"
         },
         {
             "title": "寻遍星空",
