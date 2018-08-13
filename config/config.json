@@ -162,6 +162,41 @@
             "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E8%AF%97.mp3",
             "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/%E5%BF%83%E5%8D%8E.jpg",
             "lyrics": "http://p3fsh3hac.bkt.clouddn.com/lyrica/lyrics/%E8%AF%97.txt"
+        },
+        {
+            "title": "Shape of You",
+            "artist": "Ed Sheeran",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/Shape%20of%20You.mp3"
+        },
+        {
+            "title": "Perfect",
+            "artist": "Ed Sheeran",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/Perfect.mp3"
+        },
+        {
+            "title": "7 Years",
+            "artist": "Lukas Graham",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/7%20Years.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/7%20Years.jpg"
+        },
+        {
+            "title": "大城小爱",
+            "artist": "王力宏",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E5%A4%A7%E5%9F%8E%E5%B0%8F%E7%88%B1.mp3"
+        },
+        {
+            "title": "琼花房",
+            "artist": "胡碧乔",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E7%90%BC%E8%8A%B1%E6%88%BF.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/%E7%90%BC%E8%8A%B1%E6%88%BF.jpg",
+            "lyrics": "http://p3fsh3hac.bkt.clouddn.com/lyrica/lyrics/%E7%90%BC%E8%8A%B1%E6%88%BF.txt"
+        },
+        {
+            "title": "小城谣",
+            "artist": "胡碧乔",
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/%E5%B0%8F%E5%9F%8E%E8%B0%A3.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/%E6%B0%B4%E4%B9%A1.jpg",
+            "lyrics": "http://p3fsh3hac.bkt.clouddn.com/lyrica/lyrics/%E5%B0%8F%E5%9F%8E%E8%B0%A3.txt"
         }
     ]
 }
