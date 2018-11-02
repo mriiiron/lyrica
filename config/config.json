@@ -166,7 +166,9 @@
         {
             "title": "Shape of You",
             "artist": "Ed Sheeran",
-            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/Shape%20of%20You.mp3"
+            "mp3": "http://p3fsh3hac.bkt.clouddn.com/lyrica/music/Shape%20of%20You.mp3",
+            "poster": "http://p3fsh3hac.bkt.clouddn.com/lyrica/cover/ShapeOfYou.jpg",
+            "lyrics": "http://p3fsh3hac.bkt.clouddn.com/lyrica/lyrics/ShapeOfYou.txt"
         },
         {
             "title": "Perfect",

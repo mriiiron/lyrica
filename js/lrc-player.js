@@ -28,10 +28,19 @@
         for (let i = 0; i < lines.length; i++) {
             let line = lines[i];
             let nodes = line.match(regexp);
-            let text = line.replace(regexp, '').trim();
+            let splitted = line.replace(regexp, '').trim().split('|');
+            let text = splitted[0].trim();
+            let translation = null;
+            if (splitted.length > 1) {
+                translation = splitted[1].trim();
+            }
             for (let j = 0; j < nodes.length; j++) {
                 let t = nodes[j].slice(1, -1).split(':');
-                result.push([parseInt(t[0], 10) * 60 + parseFloat(t[1]), (text == '' ? '&nbsp;' : text)]);
+                let resultItem = [parseInt(t[0], 10) * 60 + parseFloat(t[1]), (text == '' ? '&nbsp;' : text)];
+                if (translation) {
+                    resultItem.push(translation);
+                }
+                result.push(resultItem);
             }
         }
         return result.sort((a, b) => (a[0] - b[0]));
@@ -43,7 +52,14 @@
         let $container = $(this.el);
         $container.empty();
         for (var i = 0; i < this.data.length; i++) {
-            $container.append('<p>' + this.data[i][1] + '</p>');
+
+            let $p = $('<p>' + this.data[i][1] + '</p>')
+            if (this.data[i][2]) {
+                $p.append('<br /><small>' + this.data[i][2] + '</small>');
+            }
+
+
+            $container.append($p);
         }
         $container.css('top', this.offsetTop + 'px');
     };
