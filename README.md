@@ -59,9 +59,31 @@ Promise.all([
 });
 ```
 
-### Who is Lyrica?
-> Lyrica Prismriver is a "poltergeist (phantom, or ghost)". She's able to play her musical instrument without actually touching, just like her sisters.
+## Styling
 
-—— From [Touhou Project](https://en.wikipedia.org/wiki/Touhou_Project)
+Inside the wrapper (you specified), Lyrica would generate an inner wrapper with class `lyrica-inner`.
 
-![Lyrica Prismriver](./assets/lyrica-bw.png "Lyrica Prismriver")
+Inside the inner wrapper, rows of lyrics would be simply `p` elements. The currently active row would have class `active`.
+
+``` html
+<div class="lyrica-inner">
+    <p>foo foo foo</p>
+    <p>foo foo foo</p>
+    <p class="active">foo foo foo</p>
+    <p>foo foo foo</p>
+    ...
+</div>
+```
+
+### Styling Example:
+
+``` css
+.lyrica-inner p {
+    color: gray;
+}
+
+.lyrica-inner p.active {
+    font-weight: bold;
+    color: black;
+}
+```
