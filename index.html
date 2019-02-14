@@ -2,274 +2,94 @@
 <html>
 
 <head>
-    <title>Lyrica</title>
+    <title>Demo | lyrica.js</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./css/perfect-scrollbar.css">
-    <link rel="stylesheet" href="./css/lyrica.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+    <style>
+        html, body, #wrapper {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Verdana, Arial, "Microsoft YaHei", sans-serif;
+        }
+        body {
+            display: flex;
+        }
+        main {
+            margin: auto;
+            width: 480px;
+            height: 640px;
+            display: flex;
+            flex-direction: column;
+        }
+        audio {
+            width: 100%;
+            margin-bottom: 20px;
+            flex-shrink: 0;
+        }
+        #lyrica-wrap
+        {
+            flex-grow: 1;
+        }
+        .lyrica-inner p {
+            color: gray;
+        }
+        .lyrica-inner p.active {
+            font-weight: bold;
+            color: black;
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="wrapper">
-    <div id="lyrica">
-        <div id="jplayer-lyrica" class="jp-jplayer"></div>
-        <div id="jplayer-lyrica-container" class="jp-audio lyrica-wrapper" role="application" aria-label="media player">
-            <div class="lyrica-console">
-                <div class="lyrica-volume">
-                    <div class="jp-mute"><i class="fas fa-volume-up"></i></div>
-                    <div class="jp-volume-bar">
-                        <div class="jp-volume-bar-value"></div>
-                    </div>
-                </div>
-                <div class="lyrica-carousel">
-                    <div class="lyrica-song-poster"></div>
-                    <div class="lyrica-lyrics">
-                        <div class="jp-lyrics"></div>
-                    </div>
-                </div>
-                <div class="lyrica-progress">
-                    <div class="jp-seek-bar">
-                        <div class="jp-play-bar"></div>
-                    </div>
-                    <div class="jp-current-time"></div>
-                    <div class="jp-duration"></div>
-                </div>
-                <div class="lyrica-display">
-                    <div class="lyrica-display-inner">
-                        <div class="jp-title"></div>
-                        <div class="lyrica-artist"></div>
-                    </div>
-                </div>
-                <div class="lyrica-control-bar">
-                    <div class="control-button lyrica-control-extra"><i class="fas fa-music fa-fw"></i></div>
-                    <div class="control-button lyrica-control-previous"><i class="fas fa-step-backward fa-fw"></i></div>
-                    <div class="control-button jp-play"><i class="fas fa-play fa-fw"></i></div>
-                    <div class="control-button lyrica-control-next"><i class="fas fa-step-forward fa-fw"></i></div>
-                    <div class="control-button lyrica-control-playlist"><i class="fas fa-list fa-fw"></i></div>
-                    <div class="lyrica-control-bar-extra">
-                        <div class="lyrica-loop"><i class="fas fa-undo"></i></div>
-                        <div class="lyrica-shuffle"><i class="fas fa-random"></i></div>
-                    </div>
-                </div>
-                <div class="lyrica-footer"></div>
-            </div>
-            <div class="lyrica-panel-playlist">
-                <div class="jp-playlist"><ul><li></li></ul></div>
-            </div>
-            <div class="lyrica-panel-extra">
-                <p><b>- About Lyrica -</b></p>
-                <p><a href="https://github.com/mriiiron/lyrica" target="_blank">Lyrica</a> is an open-source music player built based on <a href="http://jplayer.org" target="_blank">jPlayer</a>, enhanced with lyrics scrolling display features.</p>
-                <p>Feel free to <a href="https://github.com/mriiiron/lyrica" target="_blank">fork me</a>, and create your own playlist!</p>
-                <p>&nbsp;</p>
-                <p><b>- Extra -</b></p>
-                <p><a href="./lrc-maker/" target="_blank">&gt;&gt; Online LRC Maker &lt;&lt;</a></p>
-                <p><a href="./config/" target="_blank">&gt;&gt; Manage Playlist &lt;&lt;</a></p>
-            </div>
-        </div>
-    </div>
-</div>
+    <main>
+        <audio src="./assets/ShapeOfYou.mp3" controls>Your browser is soooooooooo outdated!</audio>
+        <div id="lyrica-wrap"></div>
+    </main>
 
-<p class="copyright">© 2018 Crafted by <a href="http://caiyi.us" target="_blank">mriiiron</a></p>
+    <script src="./js/lyrica.js"></script>
+    <script>
 
-<a href="https://github.com/mriiiron/lyrica" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
-
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script src="./js/jquery.jplayer.min.js"></script>
-<script src="./js/jplayer.playlist.min.js"></script>
-<script src="./js/lrc-player.js"></script>
-<script src="./js/perfect-scrollbar.min.js"></script>
-<script>
-
-    var debug = true;
-
-    var lyrics = null;
-    var player = null;
-    var playlist = null;
-
-    function randomInt(min, max) {
-        return (Math.floor(Math.random() * (max - min))) + min;
-    }
-
-    function Playlist(desc) {
-        this.current = 0;
-        this.original = [];
-        this.shuffled = null;
-        this.playByClickListItem = false;
-        this.playByPreviousEnded = false;
-        for (let i = 0; i < desc.length; i++) { this.original.push(i); }
-    }
-
-    Playlist.prototype.shuffle = function () {
-        let t = null;
-        this.shuffled = this.original.slice(0);
-        this.shuffled[0] = this.current;
-        this.shuffled[this.current] = 0;
-        for (let i = 1; i < this.original.length - 1; i++) {
-            let j = randomInt(i, this.original.length);
-            t = this.shuffled[i];
-            this.shuffled[i] = this.shuffled[j];
-            this.shuffled[j] = t;
+        function ajax(url, returnType) {
+            return new Promise(function(resolve, reject) {
+                let request = new XMLHttpRequest();
+                request.responseType = returnType;
+                request.onreadystatechange = function() {
+                    if (request.readyState === XMLHttpRequest.DONE) {
+                        if (request.status === 200) {
+                            resolve(request.response);
+                        }
+                        else {
+                            reject(Error(request.status));
+                            console.error('AJAX request to', url, 'failed. Got status', request.status);
+                        }
+                    }
+                };
+                request.onerror = function() {
+                    reject(Error("Network Error"));
+                    console.warn('AJAX request to', url, 'failed due to network error.');
+                };
+                request.open('GET', url);
+                request.send();
+            });
         }
-        this.current = 0;
-        if (debug) { console.log('Shuffled: ', this.shuffled); }
-    };
 
-    Playlist.prototype.unshuffle = function () {
-        this.current = this.shuffled[this.current];
-        this.shuffled = null;
-        if (debug) { console.log('Unshuffled.'); }
-    };
-
-
-    // Override jPlayerPlaylist.previous()
-    jPlayerPlaylist.prototype.previous = function () {
-        playlist.current = (playlist.current - 1 < 0 ? playlist.original.length - 1 : playlist.current - 1);
-        player.play(playlist.shuffled ? playlist.shuffled[playlist.current] : playlist.original[playlist.current]);
-    };
-
-    // Override jPlayerPlaylist.next()
-    jPlayerPlaylist.prototype.next = function () {
-        playlist.current = (playlist.current + 1 >= playlist.original.length ? 0 : playlist.current + 1);
-        player.play(playlist.shuffled ? playlist.shuffled[playlist.current] : playlist.original[playlist.current]);
-    };
-
-
-    $(document).ready(function () {
-
-        let lyrica_Selector = '#jplayer-lyrica';
-        let lyricaUI_Selector = '#jplayer-lyrica-container';
-        let lyrics_Selector = lyricaUI_Selector + ' .jp-lyrics';
-
-        let $lyrica = $(lyrica_Selector);
-        let $lyricaUI = $(lyricaUI_Selector);
-
-        lrcPlayer = new LRCPlayer({
-            el: lyrics_Selector,
+        const lyrica = new Lyrica({
+            el: "#lyrica-wrap",
             offsetTop: 50
         });
 
-        const ps = new PerfectScrollbar(document.getElementsByClassName('lyrica-panel-playlist')[0]);
+        const audio = document.querySelector('audio');
+        audio.addEventListener('timeupdate', function () { lyrica.update(audio.currentTime); });
 
-        $.getJSON('./config/config.json', function (data) {
-            player = new jPlayerPlaylist(
-                {
-                    jPlayer: lyrica_Selector,
-                    cssSelectorAncestor: lyricaUI_Selector,
-                },
-                data.playlist,
-                {
-                    playlistOptions: {
-                        displayTime: 0,
-                        addTime: 0,
-                        removeTime: 0,
-                        shuffleTime: 0
-                    },
-                    swfPath: '/js',
-                    supplied: 'mp3',
-                    useStateClassSkin: true
-                }
-            );
-            playlist = new Playlist({ length: data.playlist.length });
+        Promise.all([
+            ajax('./assets/ShapeOfYou.lrc.txt', 'text')
+        ]).then(function (res) {
+            lyrica.load(res[0]);
         });
 
-        $lyrica.bind($.jPlayer.event.play, function (e) {
-            $lyricaUI.find('.jp-play svg').removeClass('fa-play').addClass('fa-pause');
-            if (playlist.playByClickListItem) {
-                playlist.playByClickListItem = false;
-                playlist.current = player.current;
-                if (playlist.shuffled) {
-                    playlist.shuffle();
-                }
-            }
-            if (debug) { console.log('Playlist Index:', playlist.current, ' Player Index:', player.current); }
-        });
-
-        $lyrica.bind($.jPlayer.event.pause, function (e) {
-            $lyricaUI.find('.jp-play svg').removeClass('fa-pause').addClass('fa-play');
-        });
-
-        $lyrica.bind($.jPlayer.event.ended, function (e) {
-            console.log('$.jPlayer.event.ended');
-        });
-
-        $lyrica.bind($.jPlayer.event.volumechange, function (e) {
-            let $svg = $lyricaUI.find('.jp-mute svg');
-            if ($lyricaUI.hasClass('jp-state-muted')) {
-                $svg.removeClass('fa-volumn-down').removeClass('fa-volume-up').addClass('fa-volume-off');
-            }
-            else {
-                if (e.jPlayer.options.volume > 0.667) {
-                    $svg.removeClass('fa-volumn-off').removeClass('fa-volume-down').addClass('fa-volume-up');
-                }
-                else if (e.jPlayer.options.volume > 0) {
-                    $svg.removeClass('fa-volumn-off').removeClass('fa-volume-up').addClass('fa-volume-down');
-                }
-                else {
-                    $svg.removeClass('fa-volumn-down').removeClass('fa-volume-up').addClass('fa-volume-off');
-                }
-            }
-        });
-
-        $lyrica.bind($.jPlayer.event.setmedia, function (e) {
-            let media = e.jPlayer.status.media;
-            $lyricaUI.find('.lyrica-song-poster').css('background-image', 'url("' + (media.poster ? media.poster : './assets/default-cover.jpg') + '")');
-            $lyricaUI.find('.lyrica-artist').text(media.artist);
-            if (media.lyrics) {
-                $.get(media.lyrics, null, function (data) {
-                    lrcPlayer.load(data);
-                }, 'text');
-            }
-            else {
-                lrcPlayer.clear();
-                $(lyrics_Selector).html('<p>no lyrics.</p>');
-            }
-        });
-
-        $lyrica.bind($.jPlayer.event.timeupdate, function (e) {
-            lrcPlayer.update(e.jPlayer.status.currentTime);
-        });
-
-        $lyricaUI.find('.lyrica-carousel').click(function () {
-            $(this).toggleClass('lyrica-lyrics-displaying');
-        });
-
-        $lyricaUI.find('.lyrica-control-playlist').click(function () {
-            $lyricaUI.toggleClass('lyrica-playlist-showing');
-        });
-
-        $lyricaUI.find('.lyrica-control-extra').click(function () {
-            $lyricaUI.toggleClass('lyrica-extra-showing');
-        });
-
-        $lyricaUI.find('.lyrica-control-previous').click(function () {
-            player.previous();
-        });
-
-        $lyricaUI.find('.lyrica-control-next').click(function () {
-            player.next();
-        });
-
-        $lyricaUI.find('.lyrica-loop').click(function () {
-            $lyricaUI.toggleClass('lyrica-state-looped');
-        });
-
-        $lyricaUI.find('.lyrica-shuffle').click(function () {
-            if (playlist.shuffled) {
-                playlist.unshuffle();
-            }
-            else {
-                playlist.shuffle();
-            }
-            $lyricaUI.toggleClass('lyrica-state-shuffled');
-        });
-
-        $lyricaUI.find(".jp-playlist").on("click", ".jp-playlist-item", function() {
-            playlist.playByClickListItem = true;
-        });
-
-    });
-
-</script>
+    </script>
 
 </body>
+
+</html>
