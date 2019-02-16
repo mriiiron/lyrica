@@ -63,12 +63,14 @@ Promise.all([
 
 Inside the wrapper (you specified), Lyrica would generate an inner wrapper with class `lyrica-inner`.
 
-Inside the inner wrapper, rows of lyrics would be simply `p` elements. The currently active row would have class `active`.
+Inside the inner wrapper, rows of lyrics would be simply `<p>` elements. The currently active row would have class `active`.
+
+Inside a single line, Translation would be wrapped into a `<small>` tag, prefixed by a `<br />`.
 
 ``` html
 <div class="lyrica-inner">
     <p>foo foo foo</p>
-    <p>foo foo foo</p>
+    <p>foo foo foo<br /><small>translation translation</small></p>
     <p class="active">foo foo foo</p>
     <p>foo foo foo</p>
     ...
